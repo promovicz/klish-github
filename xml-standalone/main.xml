@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CLISH_MODULE xmlns="http://clish.sourceforge.net/XMLSchema"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://clish.sourceforge.net/XMLSchema
+                     http://clish.sourceforge.net/XMLSchema/clish.xsd">
+
+	<PLUGIN name="python" file="clish_plugin_python.so">
+	</PLUGIN>
+
+	<STARTUP view="hubklish">
+		<DETAIL>
+HUBKLISH
+		</DETAIL>
+		<ACTION>
+echo "Welcome $(whoami) it is $(date) on $(hostname)"
+echo ""
+		</ACTION>
+	</STARTUP>
+
+	<COMMAND name="quit"
+			 help="Retreat cowardly">
+		<ACTION builtin="clish_close"/>
+	</COMMAND>
+
+</CLISH_MODULE>

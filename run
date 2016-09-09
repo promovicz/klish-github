@@ -1,0 +1,13 @@
+#!/bin/sh
+
+BASE="$(pwd)"
+SELF="$(realpath $0)"
+ROOT="$(dirname $SELF)"
+
+export PAGER="less -XFe"
+export EDITOR="vim"
+export PYTHONPATH="$ROOT"
+export CLISH_PATH="$ROOT/xml-github:$ROOT/xml-standalone"
+
+# run clish
+$WRAP clish -w hubklish

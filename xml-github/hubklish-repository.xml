@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CLISH_MODULE xmlns="http://clish.sourceforge.net/XMLSchema"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://clish.sourceforge.net/XMLSchema
+                     http://clish.sourceforge.net/XMLSchema/clish.xsd">
+
+  <VIEW name="hubklish">
+
+    <COMMAND name="set repository"
+             help="Set repository for future operations">
+      <PARAM name="name"
+             help="Repository to use"
+             ptype="github_repository"/>
+      <ACTION builtin="python@python">
+hubklish.repository.set_repository(clish.params)
+      </ACTION>
+    </COMMAND>
+
+	<COMMAND name="show repository"
+			 help="Show repository information">
+      <PARAM name="name"
+             help="Repository to show"
+             ptype="github_repository"
+             optional="true"/>
+      <ACTION builtin="python@python">
+hubklish.repository.show_repository(clish.params)
+      </ACTION>
+    </COMMAND>
+
+    <COMMAND name="show repository list"
+			 help="List repositories">
+      <PARAM name="organization"
+             help="Repos by organization"
+             ptype="github_organization"
+             prefix="organization"
+             optional="true"/>
+      <PARAM name="user"
+             help="Repos by user"
+             ptype="github_user"
+             prefix="user"
+             optional="true"/>
+      <PARAM name="type"
+             help="Repos of type"
+             ptype="github_repository_type"
+             prefix="type"
+             default="owner"
+             optional="true"/>
+      <PARAM name="all"
+             help="Show all (default is limited)"
+             ptype="string"
+             value="all"
+             optional="true"/>
+      <PARAM name="limit"
+             help="Maximum number of items (default: 30)"
+             ptype="unsigned"
+             prefix="limit"
+             default="30"
+             optional="true"/>
+      <PARAM name="page"
+             help="Page to start at (page defined by limit)"
+             ptype="unsigned"
+             prefix="page"
+             default="1"
+             optional="true"/>
+      <ACTION builtin="python@python">
+hubklish.repository.show_repository_list(clish.params)
+      </ACTION>
+    </COMMAND>
+
+    <COMMAND name="create repository"
+			 help="Create a repository">
+    </COMMAND>
+
+	</VIEW>
+
+</CLISH_MODULE>

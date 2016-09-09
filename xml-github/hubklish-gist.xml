@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CLISH_MODULE xmlns="http://clish.sourceforge.net/XMLSchema"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://clish.sourceforge.net/XMLSchema
+                     http://clish.sourceforge.net/XMLSchema/clish.xsd">
+
+  <VIEW name="hubklish">
+
+	<COMMAND name="show gist"
+			 help="Show gist information">
+      <PARAM name="id"
+             help="Gist to show"
+             ptype="github_gist"/>
+      <ACTION builtin="python@python">
+hubklish.gist.show_gist(clish.params)
+      </ACTION>
+    </COMMAND>
+
+    <COMMAND name="show gist list"
+			 help="List gists">
+      <PARAM name="organization"
+             help="Gists by organization"
+             ptype="github_organization"
+             prefix="organization"
+             optional="true"/>
+      <PARAM name="user"
+             help="Gists by user"
+             ptype="github_user"
+             prefix="user"
+             optional="true"/>
+      <ACTION builtin="python@python">
+hubklish.gist.show_gist_list(clish.params)
+      </ACTION>
+    </COMMAND>
+
+    <COMMAND name="comment gist"
+			 help="Comment a gist">
+    </COMMAND>
+
+    <COMMAND name="create gist"
+			 help="Create a gist">
+    </COMMAND>
+
+    <COMMAND name="edit gist"
+             help="Edit a gist">
+    </COMMAND>
+
+  </VIEW>
+
+</CLISH_MODULE>

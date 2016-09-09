@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CLISH_MODULE xmlns="http://clish.sourceforge.net/XMLSchema"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://clish.sourceforge.net/XMLSchema
+                     http://clish.sourceforge.net/XMLSchema/clish.xsd">
+
+  <PTYPE name="github_login"
+         pattern="[[:graph:]]+"
+         help="Login"/>
+  <PTYPE name="github_organization"
+         pattern="[[:graph:]]+"
+         help="Organization"/>
+  <PTYPE name="github_user"
+         pattern="[[:graph:]]+"
+         help="User"/>
+
+  <PTYPE name="github_repository"
+         pattern="[[:graph:]]+"
+         help="Repository"/>
+  <PTYPE name="github_repository_type"
+         method="select"
+         pattern="all owner public private member"
+         help="Repository"/>
+
+  <PTYPE name="github_gist"
+         pattern="[[:graph:]]+"
+         help="Gist"/>
+
+  <PTYPE name="github_issue"
+         pattern="[0-9]+"
+         help="Issue"/>
+
+</CLISH_MODULE>

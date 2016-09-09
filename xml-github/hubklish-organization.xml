@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CLISH_MODULE xmlns="http://clish.sourceforge.net/XMLSchema"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://clish.sourceforge.net/XMLSchema
+                     http://clish.sourceforge.net/XMLSchema/clish.xsd">
+
+	<VIEW name="hubklish">
+
+		<COMMAND name="show organization"
+				 help="Show organization information">
+          <PARAM name="name"
+                 ptype="github_organization"
+                 help="Name of organization"/>
+          <ACTION builtin="python@python">
+hubklish.organization.show_organization(clish.params)
+          </ACTION>
+        </COMMAND>
+
+        <COMMAND name="show organization list"
+				 help="Show organizations">
+          <ACTION builtin="python@python">
+hubklish.organization.show_organization_list(clish.params)
+          </ACTION>
+        </COMMAND>
+
+	</VIEW>
+
+</CLISH_MODULE>

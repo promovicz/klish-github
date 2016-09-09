@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CLISH_MODULE xmlns="http://clish.sourceforge.net/XMLSchema"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://clish.sourceforge.net/XMLSchema
+                     http://clish.sourceforge.net/XMLSchema/clish.xsd">
+
+  <VIEW name="hubklish">
+
+	<COMMAND name="set context"
+			 help="Set context for future operations"/>
+
+    <COMMAND name="set context self"
+             help="Set own account as context">
+      <ACTION builtin="python@python">
+hubklish.context.set_context_self(clish.params)
+      </ACTION>
+    </COMMAND>
+
+    <COMMAND name="set context user"
+             help="Set user as context">
+      <PARAM name="name"
+             help="Name of the user"
+             ptype="github_user"/>
+      <ACTION builtin="python@python">
+hubklish.context.set_context_user(clish.params)
+      </ACTION>
+    </COMMAND>
+
+    <COMMAND name="set context organization"
+             help="Set organization as context">
+      <PARAM name="name"
+             help="Name of the organization"
+             ptype="github_organization"/>
+      <ACTION builtin="python@python">
+hubklish.context.set_context_organization(clish.params)
+      </ACTION>
+    </COMMAND>
+
+	<COMMAND name="show context"
+			 help="Show context information">
+      <ACTION builtin="python@python">
+hubklish.context.show_context(clish.params)
+      </ACTION>
+    </COMMAND>
+
+  </VIEW>
+
+</CLISH_MODULE>

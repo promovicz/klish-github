@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CLISH_MODULE xmlns="http://clish.sourceforge.net/XMLSchema"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://clish.sourceforge.net/XMLSchema
+                     http://clish.sourceforge.net/XMLSchema/clish.xsd">
+
+  <VIEW name="main">
+
+    <NAMESPACE ref="hubklish"
+               help="true"
+               completion="true"
+               prefix="github"
+               prefix_help="GitHub shell"/>
+
+    <COMMAND name="interact github"
+             help="Enter GitHub shell"
+             view="hubklish"
+             viewid=""/>
+
+  </VIEW>
+
+  <VIEW name="hubklish">
+
+    <COMMAND name="quit"
+             help="Quit GitHub shell">
+      <ACTION builtin="clish_nested_up"/>
+    </COMMAND>
+
+  </VIEW>
+
+</CLISH_MODULE>
