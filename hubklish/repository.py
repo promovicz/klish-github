@@ -29,7 +29,7 @@ def print_repository_list(params, repos):
                            extra=repository_extra, params=params)
 
 def set_repository(params):
-    repo = main.repository(params, params['name'])
+    repo = main.repository_must(params, params['name'])
     if repo.organization:
         main.set_context(repo.organization)
     elif repo.owner:
@@ -38,9 +38,9 @@ def set_repository(params):
 
 def show_repository(params):
     if 'name' in params:
-        repository = main.repository(params, params['name'])
+        repository = main.repository_must(params, params['name'])
     else:
-        repository = main.repository(params)
+        repository = main.repository_must(params)
     print_repository(params, repository)
 
 def show_repository_list(params):

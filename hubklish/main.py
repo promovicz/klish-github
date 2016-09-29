@@ -57,9 +57,13 @@ def repository(params={}, name=None):
         return github().get_repo(full)
     else:
         global the_repository
-        if not the_repository:
-            raise ValueError, "No repository specified"
         return the_repository
+
+def repository_must(params={}, name=None):
+    r = repository(params, name)
+    if not r:
+        raise ValueError("No repository specified")
+    return r
 
 def set_repository(repository):
     global the_repository
