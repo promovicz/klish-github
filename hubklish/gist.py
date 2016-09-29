@@ -47,7 +47,8 @@ def show_gist(params):
 def show_gist_list(params):
     c = main.context(params)
     if isinstance(c, Organization):
-        # XXX library does not support get_gists for organizations
+        # pygithub does not support get_gists for organizations,
+        # so we "cast" it to user to access that method.
         c = main.github().get_user(c.login)
     gists = c.get_gists()
     print_gist_list(gists)
